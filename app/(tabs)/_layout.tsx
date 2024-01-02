@@ -3,8 +3,10 @@ import { Tabs } from "expo-router";
 import Colors from "@/constants/Colors";
 import { FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { useAuth } from "@clerk/clerk-expo";
 
 const Layout = () => {
+	const { isSignedIn } = useAuth();
 	return (
 		<Tabs
 			screenOptions={{
@@ -51,9 +53,13 @@ const Layout = () => {
 			<Tabs.Screen
 				name="profile"
 				options={{
-					tabBarLabel: "Profile",
+					tabBarLabel: isSignedIn ? "Profile" : "Log in",
 					tabBarIcon: ({ color, size }) => (
-						<Ionicons name="person-circle-outline" color={color} size={size} />
+						<Ionicons
+							name={isSignedIn ? "person-circle-outline" : "person-circle"}
+							color={color}
+							size={size}
+						/>
 					),
 				}}
 			/>
