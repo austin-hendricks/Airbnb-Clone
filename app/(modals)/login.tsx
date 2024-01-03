@@ -7,6 +7,7 @@ import Colors from "@/constants/Colors";
 import { FontAwesome5, Feather } from "@expo/vector-icons";
 import { useOAuth } from "@clerk/clerk-expo";
 import { useRouter } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 
 const LoginModal = () => {
 	useWarmUpBrowser();
@@ -44,6 +45,7 @@ const LoginModal = () => {
 
 	return (
 		<View style={styles.container}>
+			<StatusBar style="light" />
 			<TextInput
 				autoCapitalize="none"
 				placeholder="Email"

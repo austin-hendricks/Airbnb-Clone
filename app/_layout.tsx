@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { TouchableOpacity } from "react-native";
 import * as SecureStore from "expo-secure-store";
 import { ClerkProvider, useAuth } from "@clerk/clerk-expo";
+import { StatusBar } from "expo-status-bar";
 
 const CLERK_PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
@@ -78,41 +79,44 @@ function RootLayoutNav() {
 	}, [isLoaded]);
 
 	return (
-		<Stack>
-			<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-			<Stack.Screen
-				name="(modals)/login"
-				options={{
-					title: "Log in or sign up",
-					presentation: "modal",
-					headerTitleStyle: {
-						fontFamily: "mon-b",
-					},
-					headerLeft: () => (
-						<TouchableOpacity onPress={() => router.back()}>
-							<Ionicons name="close-outline" size={28} />
-						</TouchableOpacity>
-					),
-				}}
-			/>
-			<Stack.Screen
-				name="listings/[id]"
-				options={{
-					headerTitle: "",
-				}}
-			/>
-			<Stack.Screen
-				name="(modals)/booking"
-				options={{
-					presentation: "transparentModal",
-					animation: "fade",
-					headerLeft: () => (
-						<TouchableOpacity onPress={() => router.back()}>
-							<Ionicons name="close-outline" size={28} />
-						</TouchableOpacity>
-					),
-				}}
-			/>
-		</Stack>
+		<>
+			<StatusBar style="dark" />
+			<Stack>
+				<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+				<Stack.Screen
+					name="(modals)/login"
+					options={{
+						title: "Log in or sign up",
+						presentation: "modal",
+						headerTitleStyle: {
+							fontFamily: "mon-b",
+						},
+						headerLeft: () => (
+							<TouchableOpacity onPress={() => router.back()}>
+								<Ionicons name="close-outline" size={28} />
+							</TouchableOpacity>
+						),
+					}}
+				/>
+				<Stack.Screen
+					name="listings/[id]"
+					options={{
+						headerTitle: "",
+					}}
+				/>
+				<Stack.Screen
+					name="(modals)/booking"
+					options={{
+						presentation: "transparentModal",
+						animation: "fade",
+						headerLeft: () => (
+							<TouchableOpacity onPress={() => router.back()}>
+								<Ionicons name="close-outline" size={28} />
+							</TouchableOpacity>
+						),
+					}}
+				/>
+			</Stack>
+		</>
 	);
 }
