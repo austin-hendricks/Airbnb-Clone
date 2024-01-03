@@ -49,6 +49,7 @@ const LoginModal = () => {
 			<TextInput
 				autoCapitalize="none"
 				placeholder="Email"
+				placeholderTextColor={Colors.grey}
 				keyboardType="email-address"
 				style={[defaultStyles.inputField, { marginBottom: 30 }]}
 			/>
