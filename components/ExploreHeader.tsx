@@ -16,6 +16,10 @@ const categories = [
 		icon: "local-fire-department",
 	},
 	{
+		name: "Amazing pool",
+		icon: "pool",
+	},
+	{
 		name: "Tiny homes",
 		icon: "home",
 	},
@@ -28,12 +32,20 @@ const categories = [
 		icon: "beach-access",
 	},
 	{
+		name: "Off-the-grid",
+		icon: "grid-off",
+	},
+	{
 		name: "Play",
 		icon: "videogame-asset",
 	},
 	{
 		name: "Countryside",
 		icon: "nature-people",
+	},
+	{
+		name: "Golfing",
+		icon: "sports-golf",
 	},
 ];
 
